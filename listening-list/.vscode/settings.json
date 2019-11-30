@@ -6,5 +6,7 @@
     "javascript.suggest.enabled": false,
     "javascript.suggest.autoImports": false,
     "editor.suggestOnTriggerCharacters": false,
-    "editor.find.autoFindInSelection": true
+    "editor.find.autoFindInSelection": true,
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true
 }

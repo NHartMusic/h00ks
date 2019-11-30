@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 
 class Listening_List extends Component {
+    static contextType = ThemeContext
     render() {
-        return <div classname='listen'>
+        const { isLightTheme, light, dark } = this.context
+        const theme = isLightTheme ? light : dark
+        return <div className='listen' style={{ color: theme.syntax, background: theme.bg }}>
             <ul>
-                <li>Mujeres</li>
-                <li>Chocolate and Cheese</li>
-                <li>False Priest</li>
+                <li style={{ background: theme.ui }}>Mujeres</li>
+                <li style={{ background: theme.ui }}>Chocolate and Cheese</li>
+                <li style={{ background: theme.ui }}>False Priest</li>
             </ul>
         </div>
     }
