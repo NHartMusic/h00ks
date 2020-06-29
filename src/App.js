@@ -4,6 +4,7 @@ import AlbumList from './components/albumList'
 import ThemeContextProvider from './contexts/themeContext'
 import ThemeToggle from './components/themeToggle'
 import AuthContextProvider from './contexts/authContext'
+import AlbumContextProvider from './contexts/albumContext'
 
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
       <ThemeContextProvider>
         <AuthContextProvider>
           <Navbar />
-          <AlbumList />
+          <AlbumContextProvider>
+            <AlbumList />
+          </AlbumContextProvider>
           <ThemeToggle />
         </AuthContextProvider>
       </ThemeContextProvider>
