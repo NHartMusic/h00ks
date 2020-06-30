@@ -2,12 +2,16 @@ import React, { useContext, useState } from 'react'
 import { AlbumContext } from '../contexts/AlbumContext'
 
 const NewAlbumForm = () => {
-    const { addAlbum } = useContext(AlbumContext)
+    const { dispatch } = useContext(AlbumContext)
     const [title, setTitle] = useState('')
     const [artist, setArtist] = useState('')
     const handleSubmit = (e) => {
         e.preventDefault()
-        addAlbum(title, artist)
+        dispatch({
+            type: 'ADD_ALBUM', album: {
+                title, artist
+            }
+        })
         setTitle('')
         setArtist('')
     }

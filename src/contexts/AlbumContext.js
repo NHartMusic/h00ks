@@ -1,21 +1,12 @@
-import React, { createContext, useState } from 'react'
-import { v4 } from 'uuid'
+import React, { createContext, useReducer } from 'react'
+import { albumReducer } from '../reducers/albumReducer'
 
 export const AlbumContext = createContext()
 
 const AlbumContextProvider = (props) => {
-    const [albums, setAlbums] = useState([
-        { title: 'The Low End Theory', artist: 'A Tribe Called Quest', id: 1 },
-        { title: 'Ill Communication', artist: 'The Beastie Boys', id: 2 }
-    ])
-    const addAlbum = (title, artist) => {
-        setAlbums([...albums, { title, artist, id: v4() }])
-    }
-    const removeAlbum = (id) => {
-        setAlbums(albums.filter(album => album.id !== id))
-    }
+    const [albums, dispatch] = useReducer(albumReducer, [])
     return (
-        <AlbumContext.Provider value={{ albums, addAlbum, removeAlbum }}>
+        <AlbumContext.Provider value={{ albums, dispatch }}>
             {props.children}
         </AlbumContext.Provider>
     )
