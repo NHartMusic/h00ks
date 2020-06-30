@@ -1,12 +1,20 @@
 import React from 'react'
+import AlbumContextProvider from './contexts/AlbumContext'
+import Navbar from './components/Navbar'
+import AlbumList from './components/AlbumList'
+import NewAlbumForm from './components/AlbumForm'
 
 
 function App() {
   return (
     <div className="App">
-      <h1>hi</h1>
+      <AlbumContextProvider>
+        <Navbar />
+        <AlbumList />
+        <NewAlbumForm />
+      </AlbumContextProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
